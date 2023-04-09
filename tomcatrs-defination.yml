@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: tomcat-rs
+  namespace: dev-ns
+  labels:
+    app: tomcat
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: tomcat
+  template:
+    metadata:
+      labels:
+        app: tomcat
+    spec:
+      containers:
+        - name: tomcat
+          image: tomcat
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: webapps
+              mountPath: /usr/local/tomcat/webapps
+      volumes:
+        - name: webapps
+          emptyDir: {}

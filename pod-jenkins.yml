@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkinspod
+  labels:
+    type: cdcd
+    john: mary
+spec:
+  containers:
+  - name: jenkinspod
+    image: jenkins/jenkins
+    ports:
+      - containerPort: 8080
+        hostPort: 8080
+

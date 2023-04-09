@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  MYSQL_ROOT_PASSWORD: Welcome123
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: levis-terence
+

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins1-deployment
+spec:
+  selector:
+    matchLabels:
+      app: jenkins5
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: jenkins5
+    spec:
+      containers:
+      - name: jenkins5
+        image: jenkins/jenkins
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-service
+spec:
+  selector:
+    app: jenkins5
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080 
+  type: LoadBalancer

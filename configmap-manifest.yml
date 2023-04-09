@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconfigmap
+  labels:
+    app: myapplication
+data:
+  my-key: my-value
+  database_host: example.com
+  database_name: my_database
+  api_key: abcdef123456
